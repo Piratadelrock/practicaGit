@@ -44,8 +44,8 @@ header nav a:hover {
 }
 
 header nav #link_1 { background-position: 0 0; }
-header nav #link_2 { background-position: -149px 0; }
-header nav #link_3 { background-position: -298px 0; }
+header nav #link_2 { background-position: -150px 0; }
+header nav #link_3 { background-position: -300px 0; }
 header nav #link_4 { background-position: -447px 0; }
 header nav #link_5 { background-position: -596px 0; }
 header nav #link_6 { background-position: -745px 0; }
@@ -119,6 +119,11 @@ h5
 	float: left;
 	margin-bottom: 0px;
 	margin-top: 0px;
+}
+
+.footerby{
+	text-decoration: overline;
+	text-decoration-color: blue;
 }
 
 #menu1
