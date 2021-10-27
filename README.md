@@ -6,7 +6,6 @@
 	git init
 # Ramas (branch): trabajo en paralelo en mismo proyecto simultaneamente 
  * crear rama
- 
  	git branch <nombre de rama>
 	git checkout -b <nombre de la rama>
  * visualizar ramas 
@@ -118,7 +117,7 @@ or
 	git log --oneline --decorate --graph
 	git log --online --all --graph
 
-#fusionar ramas 
+# fusionar ramas 
 	se puede fusionar ramas una rama de origen y una rama de destino 
 	por ejemplo una rama fix-fecha -> master 
 		git merge <origen> <master>
@@ -142,7 +141,7 @@ git merge <nombre-de-la-rama>
 
 ********************************
 
-#CREANDO ALIAS PARA LOS COMANDOS 
+# CREANDO ALIAS PARA LOS COMANDOS 
 	git config --global alias.(alias que queremos colocar)
 	git config --global alias.lodag 'log --oneline --decorate --all --graph'
 	
@@ -167,22 +166,21 @@ git merge <nombre-de-la-rama>
 	git push origin master
 
 
-Ejecuta git remote -v. Esto hace algo de magia usando git pull y git push para garantizar que el contenido de tu nuevo repositorio de Github y la carpeta en tu sistema local sean los mismos.
+# Ejecuta git remote -v. Esto hace algo de magia usando git pull y git push para garantizar que el contenido de tu nuevo repositorio de Github y la carpeta en tu sistema local sean los mismos.
 
-Finalmente, ejecuta git push origin master para empujar tus archivos a Github. Ten en cuenta que la última palabra en el comando master, no es una entrada fija cuando se ejecuta git push, puede ser reemplazada por cualquier “nombre_de_rama” relevante.
+# Finalmente, ejecuta git push origin master para empujar tus archivos a Github. Ten en cuenta que la última palabra en el comando master, no es una entrada fija cuando se ejecuta git push, puede ser reemplazada por cualquier “nombre_de_rama” relevante.
 
-tratar:
+# FALLAS Y CONEXIONES
+	git fetch origin master
+	git merge origin master
+	Después de escribir este código, recibí otro error: (no avance rápido)
 
-git fetch origin master
-git merge origin master
-Después de escribir este código, recibí otro error: (no avance rápido)
+	Escribo este código:
 
-Escribo este código:
-
-git fetch origin master:tmp
-git rebase tmp
-git push origin HEAD:master
-git branch -D tmp
+	git fetch origin master:tmp
+	git rebase tmp
+	git push origin HEAD:master
+	git branch -D tmp
 
 	
 # esto es para cuando tenemos errores con la conexion remota 
@@ -206,6 +204,7 @@ o
 o
 
 	git push --set-upstream origin master
+
 como el remoto tiene un commit que el local no tiene y viceversa No hay ancestro común y por lo tanto no se puede hacer merge.
 Si el código del remoto es ligeramente parecido a tu código local y efectivamente quieres hacer un merge, la solución sería:
 
@@ -218,3 +217,14 @@ Si de verdad los códigos no tienen nada que ver, puedes hacer:
 
 git push -f --set-upstream origin master
 Y con eso vas a pisar el remoto forzadamente con tus commits locales. Ojo que con esto se perderá lo que hay en el remoto.
+
+# TAGS 
+	git tag v0.2.0
+* confirmamos con git log
+* podemos crear en un commit un tag que puede ser el 
+	git tag v0.1.0 <commit>
+* eliminar tag 
+	git tag -d <tagname>
+* listar tags 
+	git tag
+* 
