@@ -1,5 +1,7 @@
-# practicaGit
-Practicando git
+*PRACTICANDO GIT*
+
+# README.md podemos buscar documentacion para el formato md (mark down)
+
 # clonar un repositorio
 	git clone <https://link-con-nombre-del-repositorio>
 
