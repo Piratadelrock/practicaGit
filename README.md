@@ -137,7 +137,7 @@
 
 
 
-# _DATOS ADICIONALES_ * (CON EL REPOSITORIO) *
+# _DATOS ADICIONALES_ *(CON EL REPOSITORIO)
  
  * Despues de confirmar cambios y pasarlos al repositorio remoto 
 		git push <nombre-remoto> <nombre-de-tu-rama>
@@ -161,14 +161,14 @@
 ********************************
 Primero, debes cambiarte a la rama dev:
 
-git checkout dev
+	git checkout dev
 
 Antes de fusionar, debes actualizar tu rama dev local:
 
-git fetch
+	git fetch
 Por último, puedes fusionar tu rama de características en la rama dev:
 
-git merge <nombre-de-la-rama>
+	git merge <nombre-de-la-rama>
 
 ********************************
 
