@@ -4,7 +4,7 @@
 	git clone <https://link-con-nombre-del-repositorio>
 # iniciar un proyecto git 
 	git init
-# Ramas (branch): trabajo en paralelo en mismo proyecto simultaneamente 
+# RAMA - BRANCH : (trabajo en paralelo en mismo proyecto simultaneamente )
  * crear rama
  	git branch <nombre de rama>
 	git checkout -b <nombre de la rama>
@@ -23,20 +23,20 @@
 		git branch -D rama_a_borrar
 	* mas info
 		git branch -h
-# El comando crea una rama local para enviar la rama a un repositorio remoto se usa
+# CAMBIAR Y CREAR RAMA
+	git checkout -b <nombre-de-tu-rama>
+
+# Enviar rama local a rama de repositorio 
 	git push <nombre-remoto> <nombre-rama>
  Hay algunos pasos que debes seguir para cambiarte exitosamente entre ramas:
  * Los cambios en tu rama actual tienen que ser confirmados 
    o almacenados en el guardado rápido (stash) antes de que cambies de rama.
  * La rama a la que te quieras cambiar debe existir en local.
 
-# acceso directo que te permite crear y cambiarte a esa rama al mismo tiempo:
+# ESTADO DE GIT 
+	git status
 
-	git checkout -b <nombre-de-tu-rama>
-
-# git status
-
-# Añadir un único archivo:
+# AÑADIR ARCHIVOS:
 	git add <archivo>
  * Añadir todo de una vez:
 	git add -A
@@ -48,6 +48,20 @@
  * AGREGAR AL COMMIT RECIENTE O ULTIMO CREADO 
 	git commit --amend
   
+# ver los commits registrados
+	git log
+  *ver los commits sin detalles 
+	git log --oneline 
+  *ver nombres de los punteros del repositorio
+	git log --oneline --decorate
+	ver en pantalla 
+	git log --oneline | cat
+	*parametro graph para mostrar los grafos  con los distintos commits hechos con nuestro proyecto, finalidad es mostrar una relacion con 
+	el commit y la que los acompaña, por ejemplo un commit es el raiz cuando esta en el final, el siguiente seria el sucesor de la raiz, 
+	el que le sigue seria el antecesor al sucesor del a raiz.
+	git log --oneline --decorate --graph
+	git log --online --all --graph
+	
 # deshacer cambios tanto local como remoto 
 	* si esta modificado se puede deshacer cambios (sin hacer stage area) con: 
 		git checkout -- <file>
@@ -90,32 +104,49 @@
 		git revert --continue 
 	dejando dos cambios revertido y es menos destructivo 
 
+# CREANDO ALIAS PARA LOS COMANDOS 
+	git config --global alias.(alias que queremos colocar)
+	git config --global alias.lodag 'log --oneline --decorate --all --graph'
+	
+	git config --global alias.unstage 'reset HEAD --'
+	
+	PARA VER LOS ALIAS CREADOS 
+		git config --global --get-regexp alias
+	PARA ELIMINAR ALIAS
+		git config --global --unset alias.lodag
 
-# despues de confirmar cambios y pasarlos al repositorio remoto 
-	git push <nombre-remoto> <nombre-de-tu-rama>
+# TAGS ligeros
+	git tag v0.2.0
+* confirmamos con git log
+* podemos crear en un commit un tag que puede ser el 
+	git tag v0.1.0 <commit>
+* eliminar tag 
+	git tag -d <tagname>
+* listar tags 
+	git tag
+*  cambiamos entre versiones con 
+	git checkout <tagname>
+* podemos crear una rama tambien desde ese punto 
+	git checkout -b fix-0.1.0
+	volviendo a la rama original 
+	git checkout master
+	revisando el status y el log podremos ver que tenemos una rama creada desde ese commit
+ * help del tag git tag -h
 
-  *	De todas formas, si tu rama ha sido creada recientemente, puede que tengas que 	cargar y subir tu rama con el siguiente comando:
+# TAGS ANOTADOS
 
-	git push --set-upstream <nombre-remoto> <nombre-de-tu-rama>
-or
-	git push -u origin <nombre-de-tu-rama>
 
+
+# __DATOS ADICIONALES_ (CON EL REPOSITORIO)
+ 
+ * Despues de confirmar cambios y pasarlos al repositorio remoto 
+		git push <nombre-remoto> <nombre-de-tu-rama>
+ * De todas formas, si tu rama ha sido creada recientemente, puede que tengas que 	cargar y subir tu rama con el siguiente  	comando:
+		git push --set-upstream <nombre-remoto> <nombre-de-tu-rama>
+	or
+		git push -u origin <nombre-de-tu-rama>
 # obtener o recibir actualizaciones del repositorio 
 	git pull <nombre-remoto>
-
-# ver los commits registrados
-	git log
-  *ver los commits sin detalles 
-	git log --oneline 
-  *ver nombres de los punteros del repositorio
-	git log --oneline --decorate
-	ver en pantalla 
-	git log --oneline | cat
-	*parametro graph para mostrar los grafos  con los distintos commits hechos con nuestro proyecto, finalidad es mostrar una relacion con 
-	el commit y la que los acompaña, por ejemplo un commit es el raiz cuando esta en el final, el siguiente seria el sucesor de la raiz, 
-	el que le sigue seria el antecesor al sucesor del a raiz.
-	git log --oneline --decorate --graph
-	git log --online --all --graph
 
 # fusionar ramas 
 	se puede fusionar ramas una rama de origen y una rama de destino 
@@ -141,16 +172,6 @@ git merge <nombre-de-la-rama>
 
 ********************************
 
-# CREANDO ALIAS PARA LOS COMANDOS 
-	git config --global alias.(alias que queremos colocar)
-	git config --global alias.lodag 'log --oneline --decorate --all --graph'
-	
-	git config --global alias.unstage 'reset HEAD --'
-	
-	PARA VER LOS ALIAS CREADOS 
-		git config --global --get-regexp alias
-	PARA ELIMINAR ALIAS
-		git config --global --unset alias.lodag
 	
 	
 # Ejecuta git remote add origin https://github.com/nombreDeUsuario/repositorio.git en la terminal. Aquí, nombreDeUsuario y  repositorio serán reemplazados por los valores proporcionados en el enlace copiado. Esto conectará la carpeta existente en tu sistema local al repositorio de Github recién creado.
@@ -217,23 +238,3 @@ Si de verdad los códigos no tienen nada que ver, puedes hacer:
 
 git push -f --set-upstream origin master
 Y con eso vas a pisar el remoto forzadamente con tus commits locales. Ojo que con esto se perderá lo que hay en el remoto.
-
-# TAGS ligeros
-	git tag v0.2.0
-* confirmamos con git log
-* podemos crear en un commit un tag que puede ser el 
-	git tag v0.1.0 <commit>
-* eliminar tag 
-	git tag -d <tagname>
-* listar tags 
-	git tag
-*  cambiamos entre versiones con 
-	git checkout <tagname>
-* podemos crear una rama tambien desde ese punto 
-	git checkout -b fix-0.1.0
-	volviendo a la rama original 
-	git checkout master
-	revisando el status y el log podremos ver que tenemos una rama creada desde ese commit
- * help del tag git tag -h
-
-# TAGS ANOTADOS
