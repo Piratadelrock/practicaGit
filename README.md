@@ -137,7 +137,7 @@
 
 
 
-# _DATOS ADICIONALES_ (CON EL REPOSITORIO)
+# _DATOS ADICIONALES_ * (CON EL REPOSITORIO) *
  
  * Despues de confirmar cambios y pasarlos al repositorio remoto 
 		git push <nombre-remoto> <nombre-de-tu-rama>
