@@ -5,7 +5,7 @@
 # iniciar un proyecto git 
 	git init
 # Ramas (branch): trabajo en paralelo en mismo proyecto simultaneamente 
- * crear rama
+ 	* crear rama
 		git branch <nombre de rama>
 		git checkout -b <nombre de la rama>
 	* visualizar ramas 
@@ -48,7 +48,7 @@
  * AGREGAR AL COMMIT RECIENTE O ULTIMO CREADO 
 	git commit --amend
   
-# deshacer cambios tanto local como remoto se usara 
+# deshacer cambios tanto local como remoto 
 	* si esta modificado se puede deshacer cambios (sin hacer stage area) con: 
 		git checkout -- <file>
 	* si esta agregado (en el stage area) osea cuando damos add para un commit 
