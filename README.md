@@ -218,7 +218,7 @@ Si de verdad los códigos no tienen nada que ver, puedes hacer:
 git push -f --set-upstream origin master
 Y con eso vas a pisar el remoto forzadamente con tus commits locales. Ojo que con esto se perderá lo que hay en el remoto.
 
-# TAGS 
+# TAGS ligeros
 	git tag v0.2.0
 * confirmamos con git log
 * podemos crear en un commit un tag que puede ser el 
@@ -227,4 +227,13 @@ Y con eso vas a pisar el remoto forzadamente con tus commits locales. Ojo que co
 	git tag -d <tagname>
 * listar tags 
 	git tag
-* 
+*  cambiamos entre versiones con 
+	git checkout <tagname>
+* podemos crear una rama tambien desde ese punto 
+	git checkout -b fix-0.1.0
+	volviendo a la rama original 
+	git checkout master
+	revisando el status y el log podremos ver que tenemos una rama creada desde ese commit
+ * help del tag git tag -h
+
+# TAGS ANOTADOS
