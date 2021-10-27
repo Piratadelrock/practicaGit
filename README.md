@@ -159,7 +159,18 @@ git merge <nombre-de-la-rama>
 		git config --global --unset alias.lodag
 	
 	
-Ejecuta git remote add origin https://github.com/nombreDeUsuario/repositorio.git en la terminal. Aquí, nombreDeUsuario y repositorio serán reemplazados por los valores proporcionados en el enlace copiado. Esto conectará la carpeta existente en tu sistema local al repositorio de Github recién creado.
+# Ejecuta git remote add origin https://github.com/nombreDeUsuario/repositorio.git en la terminal. Aquí, nombreDeUsuario y  repositorio serán reemplazados por los valores proporcionados en el enlace copiado. Esto conectará la carpeta existente en tu sistema local al repositorio de Github recién creado.
+	para continuar debemos agregar el comando 
+
+    git push --set-upstream origin main
+
+	en caso de que tengamos alguna falla usaremos el siguiente comando
+		git pull origin master --allow-unrelated-histories
+	
+	git merge origin origin/master
+	... add and commit here...
+	git push origin master
+
 
 Ejecuta git remote -v. Esto hace algo de magia usando git pull y git push para garantizar que el contenido de tu nuevo repositorio de Github y la carpeta en tu sistema local sean los mismos.
 
@@ -179,3 +190,46 @@ git push origin HEAD:master
 git branch -D tmp
 
 	
+# esto es para cuando tenemos errores con la conexion remota 
+	git clone git@github.com:usuario/repo.git
+	
+	git init
+   	git remote add origin git@github.com:alexhak1/ThinkSecWEB.git
+	empezaste a crear archivos y carpetas.
+
+Cualquiera de los dos flujos te llevará a que el repetir la segunda instrucción te de error porque el origin ya existe
+
+El comando
+
+git push master
+Siempre dará error, porque la sintaxis debiera ser
+
+git push origin master
+Que significa "has un merge de mi local master la rama remota origin/master".
+
+Dado el mensaje de error que consta en tu pregunta, supongo que en algún momento le pusiste (por ejemplo):
+
+git add --all
+git commit -am "primer commit local"
+Y luego
+
+git pull
+o
+
+git push
+o
+
+git push --set-upstream origin master
+Pero tu remoto tiene un commit que tu local no tiene, y viceversa. No hay un ancestro común y por lo tanto no se puede hacer merge.
+
+Si el código del remoto es ligeramente parecido a tu código local y efectivamente quieres hacer un merge, la solución sería:
+
+git fetch --all
+git reset --soft origin/master
+git add --all
+git commit -am "comit encima del primer commit remoto"
+git push origin master
+Si de verdad los códigos no tienen nada que ver, puedes hacer:
+
+git push -f --set-upstream origin master
+Y con eso vas a pisar el remoto forzadamente con tus commits locales. Ojo que con esto se perderá lo que hay en el remoto.
