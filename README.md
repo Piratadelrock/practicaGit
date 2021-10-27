@@ -1,80 +1,74 @@
 *PRACTICANDO GIT*
-
 # README.md podemos buscar documentacion para el formato md (mark down)
-
 # clonar un repositorio
 	git clone <https://link-con-nombre-del-repositorio>
-
 # iniciar un proyecto git 
 	git init
-
 # Ramas (branch): trabajo en paralelo en mismo proyecto simultaneamente 
-	 *crear rama
+ * crear rama
 		git branch <nombre de rama>
 		git checkout -b <nombre de la rama>
-	 *visualizar ramas 
+	* visualizar ramas 
 		git branch
 		git branch --list
-	*cambiar de rama tambien para chequear archivos y commits
+	* cambiar de rama tambien para chequear archivos y commits
 		git checkout <nombre rama>
 		creando la rama, cambiamos a la nueva para programar las nuevas funciones
-	*renombrar rama 
+	* renombrar rama 
 		git branch -m <nombre rama actual> <nombre rama nuevo>
 		
-	 *Borrar una rama:
+	* Borrar una rama:
 		git branch -d <nombre-de-la-rama>
 		Sin embargo, puede que esta acción no nos funcione porque hayamos hecho cambios que no se hayan salvado en el repositorio remoto, o no se hayan fusionado con otras ramas. En el caso que queramos forzar el borrado de la rama, para eliminarla independientemente de si se ha hecho el push o el merge, tendrás que usar la opción "-D".
 		git branch -D rama_a_borrar
-	*mas info
+	* mas info
 		git branch -h
-	
-
 # El comando crea una rama local para enviar la rama a un repositorio remoto se usa
 	git push <nombre-remoto> <nombre-rama>
-
  Hay algunos pasos que debes seguir para cambiarte exitosamente entre ramas:
  * Los cambios en tu rama actual tienen que ser confirmados 
    o almacenados en el guardado rápido (stash) antes de que cambies de rama.
  * La rama a la que te quieras cambiar debe existir en local.
 
-#Hay también un comando de acceso directo que te permite crear y cambiarte a esa rama al mismo tiempo:
+# acceso directo que te permite crear y cambiarte a esa rama al mismo tiempo:
 
 	git checkout -b <nombre-de-tu-rama>
 
 # git status
 
-#Añadir un único archivo:
+# Añadir un único archivo:
 	git add <archivo>
  * Añadir todo de una vez:
 	git add -A
 	git add .
 
-# crear commit 
+# COMMIT 
+ * CREAR COMMIT
 	git commit -m "mensaje de confirmación"
-  *agregar archivos al ultimo commit creado 
+ * AGREGAR AL COMMIT RECIENTE O ULTIMO CREADO 
 	git commit --amend
   
-#deshacer cambios tanto local como remoto se usara 
-	*si esta modificado se puede deshacer cambios (sin hacer stage area) con: 
+# deshacer cambios tanto local como remoto se usara 
+	* si esta modificado se puede deshacer cambios (sin hacer stage area) con: 
 		git checkout -- <file>
-	*si esta agregado (en el stage area) osea cuando damos add para un commit 
+	* si esta agregado (en el stage area) osea cuando damos add para un commit 
 		git reset HEAD <file>
 		-para eliminar la modificacion usamos el git checkout -- <file>
 		
-	*al realizar modificacion agregar con add y hacer commit 
+	* al realizar modificacion agregar con add y hacer commit 
 	 cambio confirmado en el commit entonces podemos usar amend o usando reset
 		git reset <hashcommit>
 		git reset 423dfs2
 		*asi volvemos al commit anterior o especificado y luego seguimos los pasos anteriores en caso de usar reset o checkout
 	
-	*elimina tanto del stage como los cambios locales
+	* elimina tanto del stage como los cambios locales
 		git reset --hard <hashcommit>
 		git reset --hard HEAD
-	*elimina los commit y los deja en el stage
+	* elimina los commit y los deja en el stage
 		git reset --soft <hashcommit>
 		git reset --soft HEAD
 	sirve para revertir un commit, descarta los cambios que se han hecho en un commit 
-	 *diff para comparar dos commits 
+	* diff para comparar dos commits 
 		git diff <hash1> <hash2>
 		git diff HEAD~1	HEAD
 
@@ -109,7 +103,7 @@ or
 # obtener o recibir actualizaciones del repositorio 
 	git pull <nombre-remoto>
 
-#ver los commits registrados
+# ver los commits registrados
 	git log
   *ver los commits sin detalles 
 	git log --oneline 
