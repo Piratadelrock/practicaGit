@@ -4,6 +4,8 @@
 	git clone <https://link-con-nombre-del-repositorio>
 # iniciar un proyecto git 
 	git init
+# agregar archivos listos para el commit 
+	git add 
 # RAMA - BRANCH : (trabajo en paralelo en mismo proyecto simultaneamente )
  * crear rama
  	git branch <nombre de rama>
