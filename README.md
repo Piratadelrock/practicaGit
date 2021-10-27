@@ -6,6 +6,7 @@
 	git init
 # Ramas (branch): trabajo en paralelo en mismo proyecto simultaneamente 
  * crear rama
+ 
  	git branch <nombre de rama>
 	git checkout -b <nombre de la rama>
  * visualizar ramas 
