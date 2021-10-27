@@ -134,9 +134,30 @@
  * help del tag git tag -h
 
 # TAGS ANOTADOS
+* si entramos a .git que no es necesario pero si queremos saber como funciona git
+	ls -a
+	cd .git
+	vemos los refs que son punteros o las referencias que apuntan a otros objetos, las ramas apuntan a commmits los heads apuntan a commits y los tags apuntan a commits
+	examinando refs sale heads y tags 
+	cd refs
+	si se examina el contenido de algun head o archivo, cada linea apunta a un commit 
+		cd heads/master
+		cat heads/*
+	veremos los tags creados 
+		ls tags 
+	dice exactamente al commit a cual apunta 
+		cat tags/v0.1.0
+* un tag anotado es un tag serio; la idea es indicar que es una nueva version, que cambios tiene esa version que  corrige que bugs arregla que caracteristicas introduce, que queda obsoleto, es anticuado y queda sin soporte, firmar .
+anotar la fecha y hora y quien lo creo, son tags como commits pero son tags 
+eliminando los tags que tenemos ligeros 
+	git tag -l	
+	git tag -l "v2.*" para ver las versiones solo de la version 2
 
-
-
+ * CREAR TAG ANOTADO
+	git tag -a v0.1.0
+* REVISAR TAG ANOTADO
+	git show v0.1.0
+	
 # _DATOS ADICIONALES_ *(CON EL REPOSITORIO)
  
  * Despues de confirmar cambios y pasarlos al repositorio remoto 
@@ -158,34 +179,23 @@
 	ES MUY IMPORTANTE QUE CUANDO PIDAN ALGUN CAMBIO ESTE SE HAGA DEPENDIENDO DE LA RAMA, ANALIZAR SI SIRVE CREARLA DESDE EL MASTER O EL MAIN Y ASI CREAMOS UNA RAMA A PARTIR DEL CAMBIO DESDE EL MASTER Y NO DESDE OTRAS IMPLEMENTACIONES
 
 # completando el desarrollo en la rama y todo funciona correctamente pasamos a fusionar la rama con su rama padre (dev o master)
-********************************
-Primero, debes cambiarte a la rama dev:
-
-	git checkout dev
-
-Antes de fusionar, debes actualizar tu rama dev local:
-
-	git fetch
-Por último, puedes fusionar tu rama de características en la rama dev:
-
-	git merge <nombre-de-la-rama>
-
-********************************
-
-	
+	********************************
+	Primero, debes cambiarte a la rama dev:
+		git checkout dev
+	Antes de fusionar, debes actualizar tu rama dev local:
+		git fetch
+	Por último, puedes fusionar tu rama de características en la rama dev:
+		git merge <nombre-de-la-rama>
+	********************************
 	
 # Ejecuta git remote add origin https://github.com/nombreDeUsuario/repositorio.git en la terminal. Aquí, nombreDeUsuario y  repositorio serán reemplazados por los valores proporcionados en el enlace copiado. Esto conectará la carpeta existente en tu sistema local al repositorio de Github recién creado.
 	para continuar debemos agregar el comando 
-
-    git push --set-upstream origin main
-
+	    git push --set-upstream origin main
 	en caso de que tengamos alguna falla usaremos el siguiente comando
 		git pull origin master --allow-unrelated-histories
-	
 	git merge origin origin/master
 	... add and commit here...
 	git push origin master
-
 
 # Ejecuta git remote -v. Esto hace algo de magia usando git pull y git push para garantizar que el contenido de tu nuevo repositorio de Github y la carpeta en tu sistema local sean los mismos.
 
@@ -203,7 +213,6 @@ Por último, puedes fusionar tu rama de características en la rama dev:
 	git push origin HEAD:master
 	git branch -D tmp
 
-	
 # esto es para cuando tenemos errores con la conexion remota 
 	git clone git@github.com:usuario/repo.git
 	
