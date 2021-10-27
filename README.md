@@ -195,33 +195,23 @@ git branch -D tmp
 	
 	git init
    	git remote add origin git@github.com:alexhak1/ThinkSecWEB.git
-	empezaste a crear archivos y carpetas.
 
-Cualquiera de los dos flujos te llevará a que el repetir la segunda instrucción te de error porque el origin ya existe
+	para hacer actualizar el repositorio
+		git push origin master
+	significa "hacer merge del local master la rama remota origin/master".
+	
 
-El comando
+	git add --all
+	git commit -am "primer commit local"
 
-git push master
-Siempre dará error, porque la sintaxis debiera ser
-
-git push origin master
-Que significa "has un merge de mi local master la rama remota origin/master".
-
-Dado el mensaje de error que consta en tu pregunta, supongo que en algún momento le pusiste (por ejemplo):
-
-git add --all
-git commit -am "primer commit local"
-Y luego
-
-git pull
+	git pull
 o
 
-git push
+	git push
 o
 
-git push --set-upstream origin master
-Pero tu remoto tiene un commit que tu local no tiene, y viceversa. No hay un ancestro común y por lo tanto no se puede hacer merge.
-
+	git push --set-upstream origin master
+como el remoto tiene un commit que el local no tiene y viceversa No hay ancestro común y por lo tanto no se puede hacer merge.
 Si el código del remoto es ligeramente parecido a tu código local y efectivamente quieres hacer un merge, la solución sería:
 
 git fetch --all
