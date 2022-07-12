@@ -1,5 +1,8 @@
 *PRACTICANDO GIT*
+/proyecto que se subio fue uno de los que se iniciaron en la universidad tecnologica
 # README.md podemos buscar documentacion para el formato md (mark down)
+
+
 # clonar un repositorio
 	git clone <https://link-con-nombre-del-repositorio>
 # iniciar un proyecto git 
